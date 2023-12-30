@@ -29,7 +29,7 @@ uci commit network
 service network reload
 
 set_dns() {
-  if nslookup -timeout=1 -retry=1 example.com "${preferred_dns}" >/dev/null 2>&1; then
+  if nslookup -timeout=1 -retry=1 localhost "${preferred_dns}" >/dev/null 2>&1; then
     dns_to_set="${preferred_dns}"
   else
     dns_to_set="${backup_dns}"
