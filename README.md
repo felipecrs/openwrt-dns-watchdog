@@ -4,6 +4,8 @@ Monitors a preferred DNS server and switches to a backup DNS server if the prefe
 
 Useful if you are running AdGuard Home on another device and want to use it as your primary DNS server. But if that device is not available, you don't want to be without DNS.
 
+https://github.com/felipecrs/openwrt-dns-watchdog/assets/29582865/1561d5a2-ffe0-4fa4-a95c-e9493a15130d
+
 ## Installing
 
 ```console
