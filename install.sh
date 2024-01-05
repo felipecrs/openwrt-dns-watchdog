@@ -72,6 +72,12 @@ EOF
 
 chmod +x /etc/init.d/dns_watchdog
 
+tee /lib/upgrade/keep.d/dns_watchdog >/dev/null <<EOF
+/usr/bin/dns_watchdog
+/etc/init.d/dns_watchdog
+/etc/config/dns_watchdog
+EOF
+
 service dns_watchdog enable
 service dns_watchdog reload
 service dns_watchdog status
