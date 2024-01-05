@@ -13,7 +13,7 @@ config dns_watchdog 'dns_watchdog'
   option every '${every}'
 EOF
 
-tee /var/dns_watchdog.sh >/dev/null <<'EOF'
+tee /usr/bin/dns_watchdog >/dev/null <<'EOF'
 #!/bin/sh
 
 set -eu
@@ -50,7 +50,7 @@ while sleep "${every}"; do
 done
 EOF
 
-chmod +x /var/dns_watchdog.sh
+chmod +x /usr/bin/dns_watchdog
 
 tee /etc/init.d/dns_watchdog >/dev/null <<EOF
 #!/bin/sh /etc/rc.common
@@ -61,12 +61,12 @@ START=99
 STOP=01
 
 start_service() {
-    procd_open_instance
-    procd_set_param command /var/dns_watchdog.sh
-    procd_set_param file /etc/config/dns_watchdog
-    procd_set_param stdout 1
-    procd_set_param stderr 1
-    procd_close_instance
+  procd_open_instance
+  procd_set_param command /usr/bin/dns_watchdog
+  procd_set_param file /etc/config/dns_watchdog
+  procd_set_param stdout 1
+  procd_set_param stderr 1
+  procd_close_instance
 }
 EOF
 
