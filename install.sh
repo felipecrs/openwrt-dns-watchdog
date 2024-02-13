@@ -76,6 +76,7 @@ tee /lib/upgrade/keep.d/dns_watchdog >/dev/null <<EOF
 /usr/bin/dns_watchdog
 /etc/init.d/dns_watchdog
 /etc/config/dns_watchdog
+/etc/rc.d/S99dns_watchdog
 EOF
 
 service dns_watchdog enable
